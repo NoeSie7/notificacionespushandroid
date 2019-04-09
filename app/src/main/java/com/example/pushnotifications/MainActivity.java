@@ -49,6 +49,44 @@ public class MainActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void showNotification(View view) {
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        String NOTIFICATION_CHANNEL_ID = "tutorialspoint_01";
+
+        Drawable image  = ContextCompat.getDrawable(getApplicationContext(), R.drawable.superthumb);
+        Bitmap bm = ((BitmapDrawable)image).getBitmap();
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            @SuppressLint("WrongConstant") NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "Push Notifications", NotificationManager.IMPORTANCE_MAX);
+            // Configure the notification channel.
+            notificationChannel.setDescription("Sample Channel description");
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(R.color.colorAccent);
+            notificationChannel.setVibrationPattern(new long[]{0, 1000, 500, 1000});
+            notificationChannel.enableVibration(true);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+        notificationBuilder.setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.drawable.ic_sms_notification)
+                .setLargeIcon(bm)
+                .setColor(ContextCompat.getColor(this, R.color.colorAccent))
+                //.setStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                //.setTicker("Tutorialspoint")
+                //.setPriority(Notification.PRIORITY_MAX)
+                .setAutoCancel(true)
+                .setContentTitle("Notificacion")
+                .setContentText("Esto es una notificacion")
+                .setContentInfo("Informacion");
+        notificationManager.notify(0, notificationBuilder.build());
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void showNotification1(View view) {
 //        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, ID_CHANNEL);
 //        builder.setSmallIcon(R.drawable.ic_sms_notification);
 //        builder.setContentTitle("Notificacion");
@@ -85,9 +123,12 @@ public class MainActivity extends AppCompatActivity {
                 //.setStyle(new NotificationCompat.DecoratedCustomViewStyle())
                 //.setTicker("Tutorialspoint")
                 //.setPriority(Notification.PRIORITY_MAX)
-                .setContentTitle("Notificacion")
-                .setContentText("Esto es una notificacion")
-                .setContentInfo("Informacion");
+                .setAutoCancel(true)
+                .setContentTitle("Notificacion1")
+                .setContentText("Esto es una notificacion1")
+                .setContentInfo("Informacion1");
+
         notificationManager.notify(1, notificationBuilder.build());
+
     }
 }
