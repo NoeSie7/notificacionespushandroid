@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.ic_sms_notification)
                 .setLargeIcon(bm)
+                .setColor(ContextCompat.getColor(this, R.color.colorAccent))
+                //.setStyle(new NotificationCompat.DecoratedCustomViewStyle())
                 //.setTicker("Tutorialspoint")
                 //.setPriority(Notification.PRIORITY_MAX)
                 .setContentTitle("Notificacion")
