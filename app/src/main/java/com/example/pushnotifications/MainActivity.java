@@ -7,14 +7,19 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,8 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         String NOTIFICATION_CHANNEL_ID = "tutorialspoint_01";
+
+        Drawable image  = ContextCompat.getDrawable(getApplicationContext(), R.drawable.superthumb);
+        Bitmap bm = ((BitmapDrawable)image).getBitmap();
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            @SuppressLint("WrongConstant") NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "Mis notificaciones", NotificationManager.IMPORTANCE_MAX);
+            @SuppressLint("WrongConstant") NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "Push Notifications", NotificationManager.IMPORTANCE_MAX);
             // Configure the notification channel.
             notificationChannel.setDescription("Sample Channel description");
             notificationChannel.enableLights(true);
@@ -70,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.ic_sms_notification)
+                .setLargeIcon(bm)
                 //.setTicker("Tutorialspoint")
                 //.setPriority(Notification.PRIORITY_MAX)
                 .setContentTitle("Notificacion")
