@@ -8,4 +8,56 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--<style name="normal">// normal-->
+        <!--&lt;!&ndash; Sombra &ndash;&gt;-->
+        <!--<item name=" " top="4dp">-->
+            <!--<shape>-->
+                <!--<solid color="#FF7043" />-->
+                <!--<corners radius="4dip" />-->
+            <!--</shape>-->
+        <!--</item>-->
+        <!--&lt;!&ndash; Contenido &ndash;&gt;-->
+        <!--<item name="  " bottom="4dp">-->
+            <!--<shape>-->
+                <!--<solid color="#FF8A65" />-->
+                <!--<corners radius="4dip" />-->
+            <!--</shape>-->
+        <!--</item>-->
+    <!--</style>-->
+
+    <!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">// enfocado-->
+        <!--&lt;!&ndash; Sombra &ndash;&gt;-->
+        <!--<item android:top="4dp">-->
+            <!--<shape>-->
+                <!--<solid android:color="#FFCA28" />-->
+                <!--<corners android:radius="4dip" />-->
+            <!--</shape>-->
+        <!--</item>-->
+        <!--&lt;!&ndash; Contenido &ndash;&gt;-->
+        <!--<item android:bottom="4dp">-->
+            <!--<shape>-->
+                <!--<solid android:color="#FFD54F" />-->
+                <!--<corners android:radius="4dip" />-->
+            <!--</shape>-->
+        <!--</item>-->
+    <!--</layer-list>-->
+
+
+    <!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">// presionado-->
+        <!--&lt;!&ndash; Sombra &ndash;&gt;-->
+        <!--<item android:top="4dp">-->
+            <!--<shape>-->
+                <!--<solid android:color="#FFA726" />-->
+                <!--<corners android:radius="4dip" />-->
+            <!--</shape>-->
+        <!--</item>-->
+        <!--&lt;!&ndash; Contenido &ndash;&gt;-->
+        <!--<item android:bottom="4dp">-->
+            <!--<shape>-->
+                <!--<solid android:color="#FFB74D" />-->
+                <!--<corners android:radius="4dip" />-->
+            <!--</shape>-->
+        <!--</item>-->
+    <!--</layer-list>-->
+
 </resources>
